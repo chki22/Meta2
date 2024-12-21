@@ -113,10 +113,9 @@ public class DialogManager : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeText(currentDialog.text));
 
         // 특정 dialogIndex에서 이미지 활성화
-        if (SceneManager.GetActiveScene().name == "InitStory" && currentDialogIndex >= 6 && yeonhoImage != null)
+        if (SceneManager.GetActiveScene().name == "InitStory" && currentDialogIndex < 6 && yeonhoImage != null)
         {
-            yeonhoImage.gameObject.SetActive(true);
-            Debug.Log("이미지가 활성화되었습니다.");
+            yeonhoImage.gameObject.SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "AfterGiraffeStory1" && currentDialogIndex >= 7 && yeonhoImage != null)
         {
@@ -128,19 +127,17 @@ public class DialogManager : MonoBehaviour
             yeonhoImage.gameObject.SetActive(false);
             Debug.Log("이미지가 비활성화되었습니다.");
         }
-        else if (SceneManager.GetActiveScene().name == "FinalStory" && currentDialogIndex >= 1 && currentDialogIndex <= 20  && yeonhoImage != null)
+        else if (SceneManager.GetActiveScene().name == "FinalStory" && currentDialogIndex < 1  && yeonhoImage != null)
         {
-            yeonhoImage.gameObject.SetActive(true);
-            Debug.Log("이미지가 활성화되었습니다.");
+            yeonhoImage.gameObject.SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "FinalStory" && currentDialogIndex >= 21 && yeonhoImage != null)
         {
             yeonhoImage.gameObject.SetActive(false);
-            Debug.Log("이미지가 비활성화되었습니다.");
         }
         else if (yeonhoImage != null)
         {
-            yeonhoImage.gameObject.SetActive(false);
+            yeonhoImage.gameObject.SetActive(true);
         }
     }
 
